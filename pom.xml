@@ -6,7 +6,11 @@
 
     <groupId>com.lilith</groupId>
     <artifactId>shiro</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>01.shiro</module>
+    </modules>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-core -->
