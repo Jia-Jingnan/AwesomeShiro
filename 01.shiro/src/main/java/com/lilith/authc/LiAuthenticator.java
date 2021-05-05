@@ -1,6 +1,8 @@
 package com.lilith.authc;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.IncorrectCredentialsException;
+import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
@@ -10,6 +12,8 @@ import org.apache.shiro.subject.Subject;
 /**
  * @Author:JiaJingnan
  * @Date: 下午6:03 2021/5/5
+ * 认证：最终执行用户名比较 SimpleAccountRealm类中的doGetAuthenticationInfo方法中执行用户名比较
+ * 最终密码的校验是在AuthenticatingRealm中 assertCredentialsMathc中完成
  */
 public class LiAuthenticator {
 
@@ -36,9 +40,13 @@ public class LiAuthenticator {
             System.out.println("认证状态:" + subject.isAuthenticated());
             subject.login(token);
             System.out.println("认证状态:" + subject.isAuthenticated());
-        } catch (Exception e){
+        } catch (UnknownAccountException e){
             e.printStackTrace();
-        }
+            System.out.println("认证失败，用户名不存在");
+        } catch (IncorrectCredentialsException e2){
+            e2.printStackTrace();
+            System.out.println("认证失败，密码不正确");
 
+        }
     }
 }
