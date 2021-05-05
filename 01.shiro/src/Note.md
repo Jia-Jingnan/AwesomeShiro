@@ -1,0 +1,8 @@
+认证：  
+1.最终执行用户名比较 SimpleAccountRealm中的doGetAuthenticationInfo  
+2.最终密码校验是在 AuthenticatingRealm中的assertCredentialMatch完成
+
+AuthenticatingRealm 认证realm doGetAuthenticationInfo  
+AuthorizingRealm 授权realm doGetAuthorizationInfo  
+AuthorizingRealm继承了AuthenticatingRealm，具有doGetAuthenticationInfo（认证） 和 doGetAuthorizationInfo（授权）   
+SimpleAccountRealm就是继承了AuthorizingRealm,同时拥有认证和授权两个方法
