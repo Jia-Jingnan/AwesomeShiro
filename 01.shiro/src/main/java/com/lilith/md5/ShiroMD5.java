@@ -22,11 +22,11 @@ public class ShiroMD5 {
         System.out.println(md5Hash1.toHex());
 
         // md5 + salt
-        Md5Hash md5Hash2 = new Md5Hash("123", "Xfewad*");
+        Md5Hash md5Hash2 = new Md5Hash("123", "X0*7ps");
         System.out.println(md5Hash2.toHex());
 
         // md5 + salt + hash散列
-        Md5Hash md5Hash3 = new Md5Hash("123", "Xfewad*", 1024);
+        Md5Hash md5Hash3 = new Md5Hash("123", "X0*7ps", 1024);
         System.out.println(md5Hash3);
     }
 }
